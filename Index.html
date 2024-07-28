@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<link rel="Stylesheet" href="style.css">
+<body>
+<audio id="myAudio" loop>
+  <source src="1.mp3" type="audio/ogg">
+  <source src="1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio><br>
+<h1 id="p">вы точно хотите перейти на страницу?</h1>
+
+
+<button onclick="openFullscreen();" id="b">да</button>
+
+<script>
+
+var elem = document.documentElement;
+function openFullscreen() {
+    var x = document.getElementById("myAudio");
+
+function enableAutoplay() { 
+  x.autoplay = true;
+  x.load();
+}
+    enableAutoplay()
+    var el = document.getElementById("p");
+    el.remove();
+    var b = document.getElementById("b");
+    b.remove();
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+</script>
+</body>
+</html>
